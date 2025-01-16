@@ -1,12 +1,12 @@
-const API_KEY = "5defafb80b58284890d278857a0815d8";
-const WEATHER_URL = `https://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}&units=metric&lang=he&`; // הוספת ?lang=he לתמיכה בתיאור בעברית
+let API_KEY = process.env.VITE_WEATHER_KEY;
+let WEATHER_URL = `https://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}&units=metric&lang=he&`; // הוספת ?lang=he לתמיכה בתיאור בעברית
 
 // קבלת מיקום על בסיס IP
 export default async function getLocationByIP() {
     try {
         let response = await fetch('https://ipinfo.io/json?token=a723988d90a66d');
         let data = await response.json();
-        const [lat, lon] = data.loc.split(",");
+        let [lat, lon] = data.loc.split(",");
         getWeatherByLocation(lat, lon); // שליחת המיקום ל-API של מזג האוויר
     } catch (error) {
         alert("שגיאה בקבלת המיקום שלך: " + error.message);
