@@ -1,0 +1,14 @@
+.project-card {
+    width: 70px;
+    height: 90px;
+}
+
+.project-card img {
+    width: 70px;
+    height: 70px;
+}
+
+.project-card img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David's Desktop</title>
+  <link rel="stylesheet" href="./src/css/index.css">
+  <link rel="stylesheet" href="./src/css/projectsFolder.css">
+  <link rel="stylesheet" href="./src/css/songsStyle.css">
+  <link rel="stylesheet" href="./src/css/trexGame.css">
+  <link rel="stylesheet" href="./src/css/guitar.css">
+  <link rel="stylesheet" href="./src/VSCode/VSCode.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="./images/Icon David.jpg">
+
+</head>
+
+<body>
+  <div class="desktop">
+    <div class="folder" id="folder1" data-name="Documents">
+      <input readonly class="folder-name" value="Documents">
+    </div>
+    <div class="folder" id="folder2" data-name="Projects">
+      <input readonly class="folder-name" value="Projects">
+    </div>
+    <div class="folder" id="folder3" data-name="Music">
+      <input readonly class="folder-name" value="Music">
+    </div>
+    <div class="folder" id="folder4" data-name="Games">
+      <input readonly class="folder-name" value="Games">
+    </div>
+    <div class="folder" id="folder5" data-name="Guitar">
+      <input readonly class="folder-name" value="Guitar">
+    </div>
+    <div class="folder" id="folder6" data-name="VSCode">
+      <input readonly class="folder-name" value="VSCode">
+    </div>
+  </div>
+
+  <button id="fullSizeBtn" title="enter full screen">
+    <img width="20px" src="/images/fullScreen.png" alt="fullScreen" title="fullScreen button">
+  </button>
+  <button id="closeFullScreenBtn" title="exit full screen">
+    X
+  </button>
+
+
+  <!-- trexGame -->
+  <div class="t-rex-game">
+    <button class="close-btn closeTrexGame">X</button>
+    <canvas class="trexCanvas"></canvas>
+  </div>
+
+  <!-- Folder Modal -->
+  <div class="folder-window" id="folder-window" data-name="My Folder">
+    <div class="folder-header">
+      <span id="folder-title">Folder</span>
+      <div>
+        <button id="full-size-btn">[ ]</button>
+        <button id="close-btn">X</button>
+      </div>
+
+    </div>
+    <div class="folder-content" id="folder-content">
+      <!-- Folder Content -->
+    </div>
+  </div>
+
+
+  <!-- VSCode -->
+  <section id="VSCode" class="hidden">
+    <div class="vs-code-container">
+      <nav class="code-nav">
+        <ul>
+          <li>
+            <img src="/images/VSCode.png" alt="VSCode icon" title="VSCode icon">
+          </li>
+          <li>
+            <span class="filesBtn">Files</span>
+          </li>
+          <li>
+            <span>Terminal</span>
+          </li>
+          <li>
+            <span>about</span>
+          </li>
+        </ul>
+
+        <div class="actionTools">
+          <button id="extend"><img width="20px" src="/images/fullScreen.png" alt="fullScreen"
+              title="fullScreen button"></button>
+          <button id="close-code-btn">
+            X
+          </button>
+        </div>
+      </nav>
+      <div class="sidebar">
+        <div class="btn-wraper">
+          <button class="sidebar-btn active">
+            <i class="fa-regular fa-file "></i>
+          </button>
+          <button class="sidebar-btn">
+            <i class="fa-solid fa-play"></i>
+          </button>
+          <button class="sidebar-btn music" data-name="Music">
+            <i class="fa-solid fa-music"></i>
+          </button>
+          <button class="sidebar-btn music" id="spotify" data-name="Music">
+            <i class="fa-brands fa-spotify"></i>
+          </button>
+        </div>
+
+
+
+        <div class="user">
+          <button class="sidebar-btn">
+            <i class="fa-solid fa-gear"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="filesNav">
+        <span class="file">
+          <img src="./src/VSCode/images/html-logo.png" alt="html logo">
+          <p>index.html</p>
+        </span>
+        <span class="file">
+          <img src="./src/VSCode/images/css-logo.webp" alt="css logo">
+          <p>style.css</p>
+        </span>
+        <span class="file">
+          <img src="./src/VSCode/images/js-logo.webp" alt="JavaScript logo">
+          <p>script.js</p>
+        </span>
+      </div>
+      <div class="editor-container">
+        <div id="editor"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- spotify -->
+  <div id="spotifyContainer">
+    <header>
+      <h1>Spotify</h1>
+      <button id="closeSpotify" title="exit spotify full screen">
+        X
+      </button>
+    </header>
+
+    <main>
+      <div class="search-container">
+        <form>
+          <input type="text" id="search-input" placeholder="Search songs, artist, albums">
+          <button id="search-button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+
+      </div>
+      <div id="results" class="results-container"></div>
+
+    </main>
+  </div>
+
+  <div id="spotify-player"></div>
+  <div class="settings"></div>
+
+  <footer class="footer">
+    <div class="left-content">
+
+      <div class="clock-container" id="clock-container" title="">
+        <span id="time"></span>
+        <span id="date"></span>
+      </div>
+      <div class="weather-info">
+      </div>
+    </div>
+    </div>
+    <div class="settingsBtn">
+      <i class="fa-solid fa-gear"></i>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.40.0/min/vs/loader.js"></script>
+  <script src="./src/scripts/script.js" type="module"></script>
+  <script src="./src/VSCode/script.js" type="module"></script>
+  <script src="./src/songs/script.js" type="module"></script>
+  <script src="./src/dino-game/scripts/index.js" type="module"></script>
+</body>
+
+</html>

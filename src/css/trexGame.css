@@ -1,0 +1,28 @@
+.trexCanvas {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 20px #1f74d6c2;
+}
+
+.t-rex-game {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    z-index: 5;
+    width: 50%;
+    height: 350px;
+    margin: 0 auto;
+    display: none;
+}
+
+.dinoImg {
+    width: 50px;
+}
+
+.trexBtn {
+    background: transparent;
+}
+
+.trexBtn:hover {
+    background: transparent;
+}

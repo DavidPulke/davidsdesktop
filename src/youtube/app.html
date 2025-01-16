@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Music Search</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>חיפוש שירים ב-YouTube</h1>
+        <button id="searchButton">חפש שירים</button>
+        <div id="searchModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <input type="text" id="searchInput" placeholder="הקלד שם שיר או אמן...">
+                <button id="submitSearch">חפש</button>
+                <ul id="results"></ul>
+            </div>
+        </div>
+
+        <!-- חלון צדדי לנגן -->
+        <div id="playerSidePanel" class="side-panel">
+            <div class="side-panel-header">
+                <button id="expandButton">⛶</button>
+                <button id="closePlayer">✖</button>
+            </div>
+            <div id="playerContainer"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

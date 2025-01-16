@@ -1,0 +1,119 @@
+#spotifyContainer {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    height: 500px;
+    overflow-y: scroll;
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center;
+    position: absolute;
+    width: clamp(70%, 500px, 90%);
+    z-index: 666;
+    border-radius: 8px;
+    scrollbar-color: #1db954 #ccc;
+    scrollbar-width: thin;
+    visibility: hidden;
+    opacity: 0;
+    resize: both;
+}
+
+#spotifyContainer header {
+    background-color: #1db954;
+    color: white;
+    padding: 20px;
+    width: 100%;
+    position: relative;
+}
+
+#spotifyContainer h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+#spotifyContainer header button {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translate(0, -50%);
+}
+
+#spotifyContainer header button:hover {
+    background: none;
+    filter: drop-shadow(0 0 2px #000);
+}
+
+#spotifyContainer .search-container {
+    margin-top: 20px;
+}
+
+#spotifyContainer input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#spotifyContainer button {
+    padding: 10px;
+    background-color: #1DB954;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#spotifyContainer button:hover {
+    background-color: #1ed760;
+}
+
+#spotifyContainer .results-container {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+#spotifyContainer .result-item {
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+#spotifyContainer .result-item button {
+    cursor: pointer;
+}
+
+#spotifyContainer .result-item:hover {
+    transform: scale(1.05);
+}
+
+#spotifyContainer .result-item img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+#spotifyContainer .result-item h3 {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #333;
+}
+
+#spotify-player {
+    position: absolute;
+    bottom: 0;
+    right: 13px;
+    z-index: 5;
+    width: clamp(250px, 250px, 70%);
+    margin: 2rem auto;
+}
+
+#spotifyContainer .songDetails {
+    display: grid;
+    gap: 10px;
+}

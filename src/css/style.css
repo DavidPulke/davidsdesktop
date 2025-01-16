@@ -1,0 +1,302 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+[readonly] {
+    cursor: default;
+}
+
+body,
+html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: url(/images/DefultBG.jpg) no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+
+@media(max-width: 1000px) {
+
+    body,
+    html {
+        background: url('/images/DefultBG.jpg') no-repeat center center fixed;
+    }
+}
+
+.desktop {
+    height: calc(100% - 50px);
+    position: relative;
+}
+
+.folder {
+    width: 60px;
+    height: 70px;
+    background-image: url(/images/folder-icon.png);
+    background-size: cover;
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    user-select: none;
+    border-radius: 8px;
+}
+
+.folder[data-name="Music"] {
+    background-image: url(/images/musicFolder.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.folder[data-name="Games"] {
+    background-image: url(/images/gamesFolder.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.folder[data-name="Guitar"] {
+    background-image: url(/images/guitarFolder.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 80px;
+}
+
+.folder[data-name="VSCode"] {
+    background-image: url(/images/VSCode.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 80px;
+}
+
+.footer {
+    height: 50px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: white;
+}
+
+
+
+button {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #666;
+}
+
+.folder input.folder-name {
+    width: 100%;
+    border: none;
+    position: absolute;
+    bottom: -10px;
+    background: transparent;
+    text-align: center;
+    font-size: 14px;
+    outline: none;
+    font-weight: bold;
+    z-index: 5;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.folder.dragging {
+    opacity: 0.5;
+}
+
+/* settings */
+.settings {
+    width: 200px;
+    height: 300px;
+    padding: 20px;
+    background-color: #00000080;
+    position: absolute;
+    bottom: 50px;
+    right: 0px;
+    box-shadow: 0 0 3px #fff;
+    display: none;
+}
+
+.settings label {
+    border-bottom: 1px solid #fff;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+label[for='file-upload'] {
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.settingsBtn {
+    border-left: 1px solid #fff;
+    padding-left: 1rem;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+/* Folder Window */
+.folder-window {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid #ccc;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    z-index: 1000;
+    overflow: hidden;
+    overflow-y: auto;
+    resize: both;
+}
+
+.folder-header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #0078D7;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.folder-content {
+    width: 100%;
+    gap: 25px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.close-btn {
+    background-color: #FF4B4B;
+    border: none;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.close-btn:hover {
+    background-color: #D32F2F;
+}
+
+
+
+.weather-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-right: 1px solid #fff;
+    padding-right: 2rem;
+    cursor: pointer;
+}
+
+.weather-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.weather-text {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* time clock*/
+.clock-container {
+    display: grid;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: default;
+}
+
+.left-content {
+    display: flex;
+}
+
+.clock-container:hover::after {
+    content: attr(title);
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    top: -30px;
+    left: 10px;
+    white-space: nowrap;
+}
+
+
+
+/* fullSizeDesktop */
+#fullSizeBtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+#closeFullScreenBtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #0078D7;
+    font-size: 18pt;
+    visibility: hidden;
+}
+
+
+.folder-window,
+#VSCode {
+    position: absolute;
+    z-index: 1;
+    /* ברירת מחדל */
+    transition: z-index 0.2s ease-in-out;
+}
+
+
+/* תיקיות שנבחרו */
+.folder-window.active,
+#VSCode.active {
+    z-index: 9999;
+    /* ברגע שנבחרו */
+}
+
+
+#todo {
+    background-color: white;
+    position: absolute;
+    z-index: 999999;
+    width: 500px;
+    height: 500px;
+    top: 0;
+}
