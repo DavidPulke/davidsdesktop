@@ -17,13 +17,14 @@ html {
     overflow: hidden;
 }
 
+/* 
 @media(max-width: 1000px) {
 
     body,
     html {
         background: url('/images/DefultBG.jpg') no-repeat center center fixed;
     }
-}
+} */
 
 .desktop {
     height: calc(100% - 50px);

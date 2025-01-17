@@ -1,4 +1,4 @@
-let API_KEY = process.env.VITE_WEATHER_KEY;
+let API_KEY = import.meta.env.VITE_WEATHER_KEY;
 let WEATHER_URL = `https://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}&units=metric&lang=he&`; // הוספת ?lang=he לתמיכה בתיאור בעברית
 
 // קבלת מיקום על בסיס IP
