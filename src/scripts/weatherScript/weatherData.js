@@ -1,34 +1,34 @@
 let API_KEY = import.meta.env.VITE_WEATHER_KEY;
-let WEATHER_URL = `https://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}&units=metric&lang=he&`; // הוספת ?lang=he לתמיכה בתיאור בעברית
+let WEATHER_URL = `https://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}&units=metric&lang=he&`;
 
-// קבלת מיקום על בסיס IP
+// get location by ip
 export default async function getLocationByIP() {
     try {
         let response = await fetch('https://ipinfo.io/json?token=a723988d90a66d');
         let data = await response.json();
         let [lat, lon] = data.loc.split(",");
-        getWeatherByLocation(lat, lon); // שליחת המיקום ל-API של מזג האוויר
+        getWeatherByLocation(lat, lon);
     } catch (error) {
-        alert("שגיאה בקבלת המיקום שלך: " + error.message);
+        console.log("שגיאה בקבלת המיקום שלך: " + error.message);
     }
 }
 
-// קבלת מזג אוויר לפי קווי רוחב ואורך
+// getting the weather by the lat and lon
 async function getWeatherByLocation(lat, lon) {
     try {
         let response = await fetch(`${WEATHER_URL}lat=${lat}&lon=${lon}`);
         let data = await response.json();
-        showWeatherData(data); // קריאה לפונקציה שתציג את הנתונים בפוטר
+        showWeatherData(data);
     } catch (error) {
         alert("שגיאה בקבלת המידע ממזג האוויר: " + error.message);
     }
 }
 
-// הצגת המידע על מזג האוויר בפוטר עם אייקון וטקסט תיאור
+
 let weatherInfo = document.querySelector('.weather-info')
 function showWeatherData(data) {
 
-    // יצירת הקישור לאייקון מזג האוויר
+    // the weather icon
     const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
     weatherInfo.innerHTML = `
@@ -37,9 +37,9 @@ function showWeatherData(data) {
     `;
 }
 
-// קריאה לפונקציה לקבלת מיקום המשתמש על פי IP
 
 
+// getting the weather by the typed location
 let lastCity = localStorage.getItem('weatherLocation')
 if (lastCity) {
     const cityURL = `https://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}&units=metric&lang=he&q=`;
@@ -54,9 +54,8 @@ if (lastCity) {
     }
     getApi(lastCity)
     weatherInfo.setAttribute("title", `${lastCity}`)
-    // הצגת המידע על מזג האוויר בפוטר עם אייקון וטקסט תיאור
+
     function showWeatherData(data) {
-        // יצירת הקישור לאייקון מזג האוויר
         const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
         weatherInfo.innerHTML = `

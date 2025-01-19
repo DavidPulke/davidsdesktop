@@ -84,6 +84,7 @@ showFiles.addEventListener('click', showFilesFunc)
 
 // open spotify
 let spotifyBtn = document.getElementById('spotify');
+let spotifyDesktopBtn = document.querySelector('.spotifyBtn');
 let spotifyContainer = document.getElementById('spotifyContainer')
 
 export function displaySpotify() {
@@ -94,6 +95,9 @@ export function displaySpotify() {
 
 };
 
-
+// to open spotify in vscode
 spotifyBtn.addEventListener('click', displaySpotify)
+
+// to open spotify in the desktop
+spotifyDesktopBtn.addEventListener('dblclick', displaySpotify)
 

@@ -87,4 +87,9 @@ export function playTrack(trackId) {
 }
 
 
+let spotifyContainer = document.getElementById('spotifyContainer');
+if (localStorage.spotifyTheme == 'Dark') {
+    spotifyContainer.classList.add("darkMode-spotify")
+}
+
 

@@ -16,6 +16,7 @@
     visibility: hidden;
     opacity: 0;
     resize: both;
+    font-size: 17px;
 }
 
 #spotifyContainer header {
@@ -32,10 +33,12 @@
 }
 
 #spotifyContainer header button {
+    background: none;
     position: absolute;
     top: 50%;
     right: 15px;
     transform: translate(0, -50%);
+    font-size: 1.5em;
 }
 
 #spotifyContainer header button:hover {
@@ -44,7 +47,7 @@
 }
 
 #spotifyContainer .search-container {
-    margin-top: 20px;
+    padding-top: 2rem;
 }
 
 #spotifyContainer input {
@@ -116,4 +119,84 @@
 #spotifyContainer .songDetails {
     display: grid;
     gap: 10px;
+}
+
+
+
+/* themes */
+.darkMode-spotify#spotifyContainer {
+    header {
+        background-color: #333;
+        box-shadow: inset 0 0 10px #ccc;
+    }
+
+    ;
+
+
+
+    main {
+        min-height: 100%;
+        background-image: url(/images/spotify-dark-background.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        padding-bottom: 2rem;
+    }
+
+}
+
+
+.spotifyTheme {
+    position: absolute;
+    z-index: 10;
+    top: 10px;
+    left: 10px;
+}
+
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+
+}
+
+.checkbox-label {
+    background-color: #111;
+    width: 50px;
+    height: 26px;
+    border-radius: 50px;
+    position: relative;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fa-moon {
+    color: #f1c40f;
+}
+
+.fa-sun {
+    color: #f39c12;
+}
+
+.checkbox-label .ball {
+    color: #1DB954;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+}
+
+.checkbox:checked+.checkbox-label .ball {
+    transform: translateX(24px);
+    color: #111;
 }

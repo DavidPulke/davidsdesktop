@@ -80,6 +80,12 @@ function closeFullscreen() {
     }
 }
 
+const checkbox = document.getElementById("checkbox")
+checkbox.addEventListener("change", () => {
+    spotifyContainer.classList.toggle("darkMode-spotify")
+    localStorage.spotifyTheme == 'Dark' ? localStorage.spotifyTheme = 'Light' : localStorage.spotifyTheme = 'Dark'
+})
+
 
 
 

@@ -143,17 +143,21 @@ export default class Folder {
             };
             localStorage.setItem('foldersData', JSON.stringify(foldersData));
         }
-    }
+    };
 
 
     getFolderName() {
         const foldersData = JSON.parse(localStorage.getItem('foldersData')) || {};
         return foldersData[this.id]?.name || '...';
-    }
-}
+    };
+};
 
 // init of all the folders
 document.querySelectorAll('.folder').forEach(folderElement => {
+    new Folder(folderElement);
+});
+// init for the apps
+document.querySelectorAll('.app').forEach(folderElement => {
     new Folder(folderElement);
 });
 
@@ -173,6 +177,7 @@ if (localStorage.getItem('foldersData') == null) {
         folder4: { position: { left: 0, top: 231 }, name: "Games" },
         folder5: { position: { left: 0, top: 315 }, name: "Guitar" },
         folder6: { position: { left: 0, top: 400 }, name: "VSCode" },
+        folder7: { position: { left: 0, top: 485 }, name: "Spotify" },
     };
     localStorage.setItem('foldersData', JSON.stringify(foldersData));
     setTimeout(() => {

@@ -79,7 +79,7 @@ export default class DraggableFolder {
 
     resetZIndexes() {
         // reset all folders and VSCode to default z-index
-        const folders = document.querySelectorAll('.folder-window, #VSCode');
+        const folders = document.querySelectorAll('.folder-window, #VSCode, #spotifyContainer');
         folders.forEach(folder => {
             folder.style.zIndex = '10';  // Default for all folders
         });
@@ -113,10 +113,10 @@ document.addEventListener('DOMContentLoaded', () => {
         vsCodeSection.style.zIndex = '9999';  // to make it work on the VSCode folder
 
         // reset z-index for other folders
-        spotifyContainer.style.zIndex = '1';
+        spotifyContainer.style.zIndex = '6';
         const folders = document.querySelectorAll('.folder-window');
         folders.forEach(folder => {
-            folder.style.zIndex = '1';
+            folder.style.zIndex = '6';
         });
     });
 
@@ -125,10 +125,10 @@ document.addEventListener('DOMContentLoaded', () => {
         spotifyContainer.style.zIndex = '9999';  // to make it work on the spotify folder
 
         // reset z-index for other folders
-        vsCodeSection.style.zIndex = '1';
+        vsCodeSection.style.zIndex = '6';
         const folders = document.querySelectorAll('.folder-window');
         folders.forEach(folder => {
-            folder.style.zIndex = '1';
+            folder.style.zIndex = '6';
         });
     });
 });

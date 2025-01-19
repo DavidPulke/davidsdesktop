@@ -38,6 +38,9 @@
     <div class="folder" id="folder6" data-name="VSCode">
       <input readonly class="folder-name" value="VSCode">
     </div>
+    <div class="app spotifyBtn" id="folder7" data-name="Spotify">
+      <input readonly class="folder-name" value="Spotify">
+    </div>
   </div>
 
   <button id="fullSizeBtn" title="enter full screen">
@@ -108,8 +111,8 @@
           <button class="sidebar-btn music" data-name="Music">
             <i class="fa-solid fa-music"></i>
           </button>
-          <button class="sidebar-btn music" id="spotify" data-name="Music">
-            <i class="fa-brands fa-spotify"></i>
+          <button class="sidebar-btn music" id="spotify" class="spotifyBtn">
+            <i class="fa-brands fa-spotify spotifyBtn"></i>
           </button>
         </div>
 
@@ -145,10 +148,18 @@
 
   <!-- spotify -->
   <div id="spotifyContainer">
+    <div class="spotifyTheme">
+      <input type="checkbox" class="checkbox" id="checkbox">
+      <label for="checkbox" class="checkbox-label">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+        <i class="fa-brands fa-spotify ball"></i>
+      </label>
+    </div>
     <header>
       <h1>Spotify</h1>
       <button id="closeSpotify" title="exit spotify full screen">
-        X
+        <i class="fa-solid fa-xmark"></i>
       </button>
     </header>
 

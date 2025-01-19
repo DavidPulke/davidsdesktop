@@ -31,7 +31,8 @@ html {
     position: relative;
 }
 
-.folder {
+.folder,
+.app {
     width: 60px;
     height: 70px;
     background-image: url(/images/folder-icon.png);
@@ -46,6 +47,8 @@ html {
     border-radius: 8px;
 }
 
+
+/* all the folders icons */
 .folder[data-name="Music"] {
     background-image: url(/images/musicFolder.png);
     background-size: contain;
@@ -68,6 +71,14 @@ html {
 
 .folder[data-name="VSCode"] {
     background-image: url(/images/VSCode.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 80px;
+}
+
+.app[data-name="Spotify"] {
+    background-image: url(/images/spotify-icon.webp);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -102,7 +113,8 @@ button:hover {
     background-color: #666;
 }
 
-.folder input.folder-name {
+.folder input.folder-name,
+.app input.folder-name {
     width: 100%;
     border: none;
     position: absolute;
