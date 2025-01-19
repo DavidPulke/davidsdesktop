@@ -1,2 +1,8 @@
+[build.environment]
+  VITE_API_CLIENT_ID = "your-client-id"
+  VITE_API_CLIENT_KEY = "your-client-key"
+  VITE_API_YOUTUBE_KEY = "your-youtube-key"
+  VITE_WEATHER_KEY = "your-weather-key"
+
 [build]
-  secrets_scan_enabled = false
+  secrets_scan_enabled = false  # disable secrets scanning during the build
