@@ -5,9 +5,11 @@ import getWeatherByLocation from "./weatherScript/weatherData.js"
 import weatherByCity from "./weatherScript/weatherByCity.js"
 import updateTime from "./timeZone/Date.js"
 import DraggableFolder from "./foldersScript/WindowFolder.js"
-
-
 import { searchSpotify, displayResults } from '../songs/script.js';
+
+
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const searchButton = document.getElementById('search-button');
