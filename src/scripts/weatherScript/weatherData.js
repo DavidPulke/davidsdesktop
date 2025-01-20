@@ -30,7 +30,7 @@ let weatherInfo = document.querySelector('.weather-info')
 function showWeatherData(data) {
 
     // the weather icon
-    const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+    let iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
     weatherInfo.innerHTML = `
         <img src="${iconUrl}" alt="Weather Icon" class="weather-icon" />
@@ -43,7 +43,7 @@ function showWeatherData(data) {
 // getting the weather by the typed location
 let lastCity = localStorage.getItem('weatherLocation')
 if (lastCity) {
-    const cityURL = `https://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}&units=metric&lang=he&q=`;
+    let cityURL = `https://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}&units=metric&lang=he&q=`;
     async function getApi(lastCity) {
         try {
             let response = await fetch(cityURL + lastCity)
@@ -57,7 +57,7 @@ if (lastCity) {
     weatherInfo.setAttribute("title", `${lastCity}`)
 
     function showWeatherData(data) {
-        const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+        let iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
         weatherInfo.innerHTML = `
         <img src="${iconUrl}" alt="Weather Icon" class="weather-icon" />
