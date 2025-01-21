@@ -1,5 +1,5 @@
 // script.js
-const apiKey = 'something';
+const apiKey = import.meta.env['VITE_API_YOUTUBE_KEY'];
 const searchButton = document.getElementById('searchButton');
 const searchModal = document.getElementById('searchModal');
 const closeModal = document.querySelector('.close');

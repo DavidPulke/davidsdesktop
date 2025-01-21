@@ -1,8 +1,8 @@
-import { getEnvVariable } from "../scripts/handlers/envHandler";
+
 
 // searchSpotify.js
-export const ci = getEnvVariable('VITE_API_CLIENT_ID');
-export const cs = getEnvVariable('VITE_API_CLIENT_KEY');
+export const ci = import.meta.env['VITE_API_CLIENT_ID'];
+export const cs = import.meta.env['VITE_API_CLIENT_KEY'];
 
 // get access token
 export async function getAccessToken() {

@@ -1,5 +1,5 @@
-import { getEnvVariable } from "../handlers/envHandler";
-let API_KEY = getEnvVariable('VITE_WEATHER_KEY');
+
+let API_KEY = import.meta.env["VITE_WEATHER_KEY"];
 let WEATHER_URL = `https://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}&units=metric&lang=he&`;
 
 // get location by ip
@@ -17,8 +17,8 @@ export default async function getLocationByIP() {
 // getting the weather by the lat and lon
 async function getWeatherByLocation(lat, lon) {
     try {
-        let response = await fetch(`${WEATHER_URL}lat=${lat}&lon=${lon}`);
-        let data = await response.json();
+        let res = await fetch(`${WEATHER_URL}lat=${lat}&lon=${lon}`);
+        let data = await res.json();
         showWeatherData(data);
     } catch (error) {
         alert("שגיאה בקבלת המידע ממזג האוויר: " + error.message);
