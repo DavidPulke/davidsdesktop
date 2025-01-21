@@ -1,14 +1,14 @@
-const AK = "5defafb80b58284890d278857a0815d8";
-const WEATHER_URL = `https://api.openweathermap.org/data/2.5/weather?appid=${AK}&units=metric&lang=he&q=`;
-let weatherInfo = document.querySelector('.weather-info')
+let AK = import.meta.env["VITE_WEATHER_KEY"];
+let WEATHER_URL = `https://api.openweathermap.org/data/2.5/weather?appid=${AK}&units=metric&lang=he&q=`;
+let WI = document.querySelector('.weather-info')
 
 
 // change the city
-export default weatherInfo.addEventListener('click', () => {
+export default WI.addEventListener('click', () => {
     let city = prompt("Please Enter You'r City Name")
     if (city) {
         getApi(city)
-        weatherInfo.setAttribute("title", `${city}`)
+        WI.setAttribute("title", `${city}`)
         localStorage.setItem('weatherLocation', city)
     } else {
         alert('Invalid Input!')
@@ -32,7 +32,7 @@ function showWeatherData(data) {
     // יצירת הקישור לאייקון מזג האוויר
     const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
-    weatherInfo.innerHTML = `
+    WI.innerHTML = `
         <img src="${iconUrl}" alt="Weather Icon" class="weather-icon" />
         <p class="weather-text">${data.weather[0].description}, ${data.main.temp}°C</p>
     `;
