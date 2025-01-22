@@ -15,7 +15,6 @@
     scrollbar-width: thin;
     visibility: hidden;
     opacity: 0;
-    resize: both;
     font-size: 17px;
 }
 
@@ -26,6 +25,7 @@
     width: 100%;
     position: relative;
 }
+
 
 #spotifyContainer h1 {
     margin: 0;
@@ -41,9 +41,15 @@
     font-size: 1.5em;
 }
 
+#spotifyContainer header #fullScreenSpotify {
+    right: 45px;
+    font-size: 1.2em;
+}
+
 #spotifyContainer header button:hover {
     background: none;
     filter: drop-shadow(0 0 2px #000);
+    scale: 0.95;
 }
 
 #spotifyContainer .search-container {
@@ -111,9 +117,25 @@
     position: absolute;
     bottom: 0;
     right: 13px;
-    z-index: 5;
+    z-index: 11;
     width: clamp(250px, 250px, 70%);
     margin: 2rem auto;
+    filter: drop-shadow(0 0 10px #ccc);
+}
+
+#spotify-player:not(.minimized) .tools {
+    position: absolute;
+    top: 28px;
+    right: 25px;
+    width: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#spotify-player i {
+    color: #fff;
+    font-size: 1.2em;
+    cursor: pointer;
 }
 
 #spotifyContainer .songDetails {
@@ -199,4 +221,53 @@
 .checkbox:checked+.checkbox-label .ball {
     transform: translateX(24px);
     color: #111;
+}
+
+
+/* full screen */
+#spotifyContainer.fullScreen {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: none;
+    overflow-x: hidden;
+}
+
+
+/* minimized */
+#spotify-player.minimized {
+    z-index: 999999;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #1db954;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 30px;
+    right: 15px;
+    transform: none;
+    cursor: pointer;
+    animation: soundWave 1.5s infinite;
+}
+
+#spotify-player.minimized i {
+    color: white;
+    font-size: 1em;
+}
+
+@keyframes soundWave {
+    0% {
+        box-shadow: 0 0 0 0 rgba(30, 215, 96, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 20px rgba(30, 215, 96, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(30, 215, 96, 0);
+    }
 }

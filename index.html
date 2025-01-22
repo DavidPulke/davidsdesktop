@@ -35,7 +35,7 @@
     <div class="folder" id="folder5" data-name="Guitar">
       <input readonly class="folder-name" value="Guitar">
     </div>
-    <div class="folder" id="folder6" data-name="VSCode">
+    <div class="app vscodeBtn" id="folder6" data-name="VSCode">
       <input readonly class="folder-name" value="VSCode">
     </div>
     <div class="app spotifyBtn" id="folder7" data-name="Spotify">
@@ -125,7 +125,7 @@
         </div>
       </div>
 
-      <div class="filesNav">
+      <div class="filesNav ">
         <span class="file">
           <img src="./src/VSCode/images/html-logo.png" alt="html logo">
           <p>index.html</p>
@@ -158,8 +158,11 @@
     </div>
     <header>
       <h1>Spotify</h1>
-      <button id="closeSpotify" title="exit spotify full screen">
+      <button id="closeSpotify" title="exit spotify">
         <i class="fa-solid fa-xmark"></i>
+      </button>
+      <button id="fullScreenSpotify" title="spotify full screen">
+        <i class="fa-solid fa-expand"></i>
       </button>
     </header>
 
@@ -178,7 +181,15 @@
     </main>
   </div>
 
-  <div id="spotify-player"></div>
+  <!-- spotify player -->
+  <div id="spotify-player">
+    <div class="tools">
+      <i class="fa-solid fa-grip-lines"></i>
+      <i class="fa-solid fa-x" id="closeTrack"></i>
+    </div>
+  </div>
+
+
   <div class="settings"></div>
 
   <footer class="footer">

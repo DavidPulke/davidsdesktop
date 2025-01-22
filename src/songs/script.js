@@ -1,8 +1,10 @@
-
-
 // searchSpotify.js
 export const ci = import.meta.env['VITE_API_CLIENT_ID'];
 export const cs = import.meta.env['VITE_API_CLIENT_KEY'];
+
+
+// vars
+const playerDiv = document.getElementById('spotify-player');
 
 // get access token
 export async function getAccessToken() {
@@ -74,9 +76,13 @@ export function displayResults(tracks) {
     }
 }
 
+
 // play song
 export function playTrack(trackId) {
-    const playerDiv = document.getElementById('spotify-player');
+    if (playerDiv.classList.contains('minimized')) {
+        playerDiv.classList.remove('minimized');
+    }
+    playerDiv.classList.remove('hidden');
     const iframe = document.createElement('iframe');
     iframe.src = `https://open.spotify.com/embed/track/${trackId}`;
     iframe.width = '100%';
@@ -84,14 +90,72 @@ export function playTrack(trackId) {
     iframe.frameBorder = '0';
     iframe.allow = 'encrypted-media';
 
-    playerDiv.innerHTML = '';
+    playerDiv.innerHTML = `
+    <div class="tools">
+      <i class="fa-solid fa-grip-lines" id="minimizePlayer"></i>
+      <i class="fa-solid fa-x" id="closeTrack"></i>
+    </div>
+  `;
     playerDiv.appendChild(iframe);
+
+    // closeTrack
+    const closeTrackBtn = document.getElementById('closeTrack');
+    const closeTrack = () => {
+        playerDiv.classList.add('hidden');
+        playerDiv.removeChild(iframe);
+    };
+    closeTrackBtn.addEventListener('click', closeTrack);
+
+    // minimizePlayer
+    const minimizePlayerBtn = document.getElementById('minimizePlayer');
+    const minimizePlayer = () => {
+        playerDiv.classList.toggle('minimized');
+        if (playerDiv.classList.contains('minimized')) {
+            iframe.style.display = 'none';
+        } else {
+            iframe.style.display = 'block';
+        }
+    };
+    minimizePlayerBtn.addEventListener('click', minimizePlayer);
 }
+
+
+
+
 
 
 let spotifyContainer = document.getElementById('spotifyContainer');
 if (localStorage.spotifyTheme == 'Dark') {
     spotifyContainer.classList.add("darkMode-spotify")
-}
+};
 
 
+
+
+let closeSpotifyBtn = document.getElementById('closeSpotify');
+let extandSpotifyBtn = document.getElementById('fullScreenSpotify');
+let fullScreen = false;
+
+
+let closeSpotify = () => {
+    spotifyContainer.style.visibility = "hidden"
+    spotifyContainer.style.opacity = "0"
+};
+
+function extandSpotify() {
+    if (fullScreen) {
+        spotifyContainer.classList.remove('fullScreen');
+        fullScreen = false
+    } else {
+        spotifyContainer.classList.add('fullScreen');
+        fullScreen = true
+    }
+};
+
+if (closeSpotifyBtn) {
+    closeSpotifyBtn.addEventListener('click', closeSpotify)
+};
+
+if (extandSpotifyBtn) {
+    extandSpotifyBtn.addEventListener('click', extandSpotify)
+};

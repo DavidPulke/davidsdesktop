@@ -57,10 +57,7 @@ export default document.addEventListener('DOMContentLoaded', () => {
 
         document.getElementById('full-size-btn').addEventListener('click', fullSizeFolder);
 
-        let openCodeBtn = document.getElementById('openCode')
-        if (openCodeBtn) {
-            openCodeBtn.addEventListener('click', openCodeFunc)
-        }
+
 
         // update for the clicked / opend folder
         folderWindow.style.zIndex = 999999;
@@ -99,7 +96,7 @@ function fullSizeFolder() {
     const folder = document.getElementById('folder-window');
 
     if (folder.style.width !== '100%' || folder.style.height !== '100%') {
-        // מקסום התיקייה
+        // Full Screen
         folder.style.width = '100%';
         folder.style.height = '100%';
         folder.style.left = '0';
@@ -189,12 +186,6 @@ function generateFolderContent(folderName) {
                     </div>
                 </div>`;
         }
-    }
-    else if (folderName === 'VSCode') {
-
-        content = `
-        <button id="openCode">open</button>
-        `
     }
 
     return content;

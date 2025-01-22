@@ -108,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new DraggableFolder(folder);
 
 
+
     const vsCodeSection = document.getElementById('VSCode');
     vsCodeSection.addEventListener('click', () => {
         vsCodeSection.style.zIndex = '9999';  // to make it work on the VSCode folder

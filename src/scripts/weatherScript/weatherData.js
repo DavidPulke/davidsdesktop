@@ -68,7 +68,3 @@ if (lastCity) {
 } else {
     getLocationByIP();
 }
-
-
-
-

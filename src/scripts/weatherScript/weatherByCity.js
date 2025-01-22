@@ -37,5 +37,3 @@ function showWeatherData(data) {
         <p class="weather-text">${data.weather[0].description}, ${data.main.temp}°C</p>
     `;
 }
-
-

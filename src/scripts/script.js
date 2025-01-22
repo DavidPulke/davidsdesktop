@@ -29,15 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-let closeSpotifyBtn = document.getElementById('closeSpotify')
-let spotifyContainer = document.getElementById('spotifyContainer')
-let closeSpotify = () => {
-    spotifyContainer.style.visibility = "hidden"
-    spotifyContainer.style.opacity = "0"
-}
-if (closeSpotifyBtn) {
-    closeSpotifyBtn.addEventListener('click', closeSpotify)
-}
 
 
 

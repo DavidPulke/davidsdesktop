@@ -24,6 +24,7 @@ let codeContainer = document.getElementById('VSCode')
 let closeCode = document.getElementById('close-code-btn')
 let codeNav = document.querySelector('.code-nav');
 let showFiles = document.querySelector('.filesBtn');
+let filesNav = document.querySelector('.filesNav');
 let fullScreen = false;
 let openCode = false;
 
@@ -55,19 +56,24 @@ export function bringToFront() {
     codeContainer.style.zIndex = '1001'
 }
 
+let flag = false
 
-
-export function showFilesFunc() {
-    if (document.querySelector('.filesNav').style.width != '0px') {
-        document.querySelector('.filesNav').style.width = '0'
+function showFilesFunc() {
+    if (flag) {
+        filesNav.style.width = '0px'
         showFiles.classList.remove('navLinkActive')
+        flag = false
+        return;
     } else {
-        document.querySelector('.filesNav').style.width = '150px';
+        flag = true
+        filesNav.style.width = '150px';
         showFiles.classList.add('navLinkActive');
-    }
+        return;
+    };
 }
 
-if (document.querySelector('.filesNav').style.width != '0px') {
+if (filesNav.style.width != '0px') {
+    flag = true
     showFiles.classList.add('navLinkActive')
 }
 
@@ -89,11 +95,11 @@ let spotifyContainer = document.getElementById('spotifyContainer')
 
 export function displaySpotify() {
 
-
     spotifyContainer.style.visibility = "visible"
     spotifyContainer.style.opacity = "1"
 
 };
+
 
 // to open spotify in vscode
 spotifyBtn.addEventListener('click', displaySpotify)
@@ -101,3 +107,15 @@ spotifyBtn.addEventListener('click', displaySpotify)
 // to open spotify in the desktop
 spotifyDesktopBtn.addEventListener('dblclick', displaySpotify)
 
+
+
+let vscodeBtn = document.querySelector('.vscodeBtn');
+let vscodeContainer = document.getElementById('VSCode')
+
+//  open vscode
+export function displayVscode() {
+    vscodeContainer.classList.add('show')
+};
+
+// to open spotify in the desktop
+vscodeBtn.addEventListener('dblclick', openCodeFunc)
