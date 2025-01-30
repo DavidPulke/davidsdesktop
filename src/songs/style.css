@@ -138,6 +138,8 @@
     cursor: pointer;
 }
 
+
+
 #spotifyContainer .songDetails {
     display: grid;
     gap: 10px;

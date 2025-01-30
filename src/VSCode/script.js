@@ -1,22 +1,25 @@
-// הגדרת הדרישה ל-Monaco Editor
+import { aboutText, defaultText } from "./code-text";
+let flag = false
+let aboutFlag = false;
+let editor;
+let editorObject = {
+    value: defaultText.join('\n'),
+    language: 'javascript',
+    theme: 'vs-dark',
+    automaticLayout: true
+};
+
+
+
 require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.40.0/min/vs' } });
 
-// טעינת העורך
+// Reload the Editor
 require(['vs/editor/editor.main'], function () {
-    // יצירת עורך Monaco
-    var editor = monaco.editor.create(document.getElementById('editor'), {
-        value: [
-            'function helloWorld() {',
-            '\tconsole.log("Hello, World!");',
-            '}',
-            '',
-            'helloWorld();'
-        ].join('\n'),
-        language: 'javascript',
-        theme: 'vs-dark',
-        automaticLayout: true
-    });
+    // Creat Monaco Editor
+    editor = monaco.editor.create(document.getElementById('editor'), editorObject);
 });
+
+
 
 
 let extend = document.getElementById('extend')
@@ -25,6 +28,7 @@ let closeCode = document.getElementById('close-code-btn')
 let codeNav = document.querySelector('.code-nav');
 let showFiles = document.querySelector('.filesBtn');
 let filesNav = document.querySelector('.filesNav');
+let aboutBtn = document.querySelector('.aboutBtn');
 let fullScreen = false;
 let openCode = false;
 
@@ -56,20 +60,28 @@ export function bringToFront() {
     codeContainer.style.zIndex = '1001'
 }
 
-let flag = false
 
+
+// navigate to files || main code
 function showFilesFunc() {
     if (flag) {
         filesNav.style.width = '0px'
         showFiles.classList.remove('navLinkActive')
         flag = false
-        return;
     } else {
         flag = true
         filesNav.style.width = '150px';
         showFiles.classList.add('navLinkActive');
-        return;
     };
+    aboutFlag = false
+    aboutBtn.classList.remove('navLinkActive');
+    // make that edior as been uploaded to the window
+    if (editor) {
+        editor.setValue(aboutFlag ? aboutText.join('\n') : defaultText.join('\n'));
+    } else {
+        console.warn("Monaco Editor לא נטען עדיין!");
+    }
+
 }
 
 if (filesNav.style.width != '0px') {
@@ -78,12 +90,29 @@ if (filesNav.style.width != '0px') {
 }
 
 
+// navigate to about || about the project
+function showAboutFunc() {
+    aboutFlag = !aboutFlag;
+    aboutBtn.classList.toggle('navLinkActive', aboutFlag);
+    showFiles.classList.remove('navLinkActive');
 
+    // make that edior as been uploaded to the window
+    if (editor) {
+        editor.setValue(aboutFlag ? aboutText.join('\n') : defaultText.join('\n'));
+    } else {
+        console.warn("Monaco Editor לא נטען עדיין!");
+    }
+}
+
+
+
+
+// event listners for click
 extend.addEventListener('click', extendFunc)
 closeCode.addEventListener('click', openCodeFunc)
 codeNav.addEventListener('dblclick', extendFunc)
-/* codeContainer.addEventListener('click', bringToFront) */
 showFiles.addEventListener('click', showFilesFunc)
+aboutBtn.addEventListener('click', showAboutFunc)
 
 
 
@@ -118,4 +147,6 @@ export function displayVscode() {
 };
 
 // to open spotify in the desktop
-vscodeBtn.addEventListener('dblclick', openCodeFunc)
+vscodeBtn.addEventListener('dblclick', openCodeFunc);
+
+

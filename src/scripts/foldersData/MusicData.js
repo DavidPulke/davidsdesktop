@@ -1,3 +1,4 @@
+
 export async function searchITunes() {
     const query = document.getElementById('searchQuery').value;
     try {
@@ -59,25 +60,27 @@ function initVolumeControl() {
 export function startVoiceRecognition() {
     const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
 
-    // בדוק אם השדה מכיל טקסט בעברית, ואם כן, קבע את השפה לעברית
+    // If the placeholder is in he-il then set it to search with in he-il
     const searchQuery = document.getElementById('searchQuery').value;
-    const language = searchQuery.match(/[\u0590-\u05FF]/) ? 'he-IL' : 'en-US'; // זיהוי שפה
-    recognition.lang = language; // הגדר את השפה לזיהוי קולי
+    const language = searchQuery.match(/[\u0590-\u05FF]/) ? 'he-IL' : 'en-US';
+    recognition.lang = language;
 
 
-    // השמעת אפקט צליל (לא מצריך הכנה מראש)
+    // sound effect of recording
     const voiceFeedback = document.getElementById('voiceFeedback');
     if (voiceFeedback) {
-        voiceFeedback.currentTime = 0; // מחזיר את הזמן לאפס
+        voiceFeedback.currentTime = 0; // return the time back to zero
         voiceFeedback.play().catch(error => {
             console.error('Error playing audio feedback:', error);
         });
     }
 
     recognition.onresult = (event) => {
+        console.log("red");
+
         const transcript = event.results[0][0].transcript;
-        document.getElementById('searchQuery').value = transcript; // הכנס טקסט לשדה החיפוש
-        searchITunes(); // בצע חיפוש אוטומטי
+        document.getElementById('searchQuery').value = transcript; // insert the voice data into the input
+        searchITunes(); // make an auto search with the data that came
     };
 
     recognition.onerror = (event) => {
@@ -85,7 +88,7 @@ export function startVoiceRecognition() {
     };
 
 
-    recognition.start(); // התחל זיהוי קולי
+    recognition.start(); // start voice recognition
 }
 
 

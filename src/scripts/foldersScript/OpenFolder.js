@@ -110,6 +110,10 @@ function fullSizeFolder() {
 
 
 
+let voiceRec = document.querySelector('#voiceRec');
+if (voiceRec) {
+    voiceRec.addEventListener('click', startVoiceRecognition);
+}
 
 
 
@@ -119,10 +123,7 @@ function loadFolderName(folderId) {
     return foldersData[folderId] ? foldersData[folderId].name : 'Unnamed Folder';
 }
 
-const voiceRec = document.getElementById('voiceRec');
-if (voiceRec) {
-    voiceRec.addEventListener('click', startVoiceRecognition);
-}
+
 
 let trxBtn = document.querySelector("trexBtn");
 if (trxBtn) {
@@ -146,13 +147,14 @@ function generateFolderContent(folderName) {
                         <i class="fa-solid fa-volume-low"></i>
                     </label>
                 </span>
-                <h1 dir="rtl">חיפוש שירים ב-iTunes</h1>
+                <h1>Search songs in - iTunes</h1>
                 <input type="text" id="searchQuery" placeholder="הקלד שם שיר...">
                 <button id="searchButton">חפש</button>
                 <button id="voiceRec"><i class="fa-solid fa-microphone"></i></button>
                 <div id="results"></div>
             </div>
         `;
+
     } else if (folderName === 'Projects') {
         for (let i in projectsData.titles) {
             content += `<div class="project-card"><a href=${projectsData.links[i]} target="_blank"><img src=${projectsData.images[i]} alt=${projectsData.titles}></a>

@@ -74,7 +74,9 @@ export function displayResults(tracks) {
             });
         });
     }
-}
+};
+
+
 
 
 // play song
@@ -82,6 +84,7 @@ export function playTrack(trackId) {
     if (playerDiv.classList.contains('minimized')) {
         playerDiv.classList.remove('minimized');
     }
+
     playerDiv.classList.remove('hidden');
     const iframe = document.createElement('iframe');
     iframe.src = `https://open.spotify.com/embed/track/${trackId}`;
@@ -93,16 +96,17 @@ export function playTrack(trackId) {
     playerDiv.innerHTML = `
     <div class="tools">
       <i class="fa-solid fa-grip-lines" id="minimizePlayer"></i>
-      <i class="fa-solid fa-x" id="closeTrack"></i>
+      <i class="fa-solid fa-x"  id="closeTrack"></i>
     </div>
   `;
+
     playerDiv.appendChild(iframe);
 
     // closeTrack
     const closeTrackBtn = document.getElementById('closeTrack');
     const closeTrack = () => {
-        playerDiv.classList.add('hidden');
         playerDiv.removeChild(iframe);
+        closeTrackBtn.classList.add("hidden")
     };
     closeTrackBtn.addEventListener('click', closeTrack);
 
@@ -159,3 +163,6 @@ if (closeSpotifyBtn) {
 if (extandSpotifyBtn) {
     extandSpotifyBtn.addEventListener('click', extandSpotify)
 };
+
+
+
